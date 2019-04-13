@@ -1,7 +1,7 @@
 class DogWalkerController < ApplicationController
 
   get '/signup' do
-    erb :'/owners/signup'
+    erb :'/dogwalkers/signup'
   end
 
 end
