@@ -8,5 +8,9 @@ end
 
 use Rack::MethodOverride
 
+
+use WalkController
+
+use DogController
 use DogWalkerController
 run ApplicationController
