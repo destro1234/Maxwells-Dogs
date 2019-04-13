@@ -20,4 +20,20 @@ class DogWalkerController < ApplicationController
     redirect "/dogwalkers/#{@dogwalker.id}"
   end
 
+  post '/login' do
+    @dogwalker = DogWalker.find_by(:username => params[:username], :password_digest => params[:password])
+    session[:id] = @dogwalker.id
+    redirect "/dogwalkers/#{@dogwalker.id}"
+  end
+
+  helpers do
+    def logged_in?
+      !!session[:id]
+    end
+
+    def current_user
+      DogWalker.find(session[:id])
+    end
+  end
+
 end
