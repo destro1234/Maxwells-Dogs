@@ -32,8 +32,8 @@ ActiveRecord::Schema.define(version: 20190414230955) do
   create_table "walks", force: :cascade do |t|
     t.string  "address"
     t.integer "dog_walker_id"
-    t.time    "pickup_time"
-    t.time    "dropoff_time"
+    t.string  "pickup_time"
+    t.string  "dropoff_time"
   end
 
 end
