@@ -1,0 +1,22 @@
+<form action="/walks/<%= @walk.id %>/edit" method="patch">
+
+  <input id="hidden" type="hidden" name="_method" value="PATCH">
+
+  <h1>Edit Walk</h1>
+
+  <label for="dog[name]">Dog: </label>
+  <input type="text" name="dog[name]" value=""><br>
+
+
+  <label for="address">Address: </label>
+  <input type="text" name="address" value=""><br>
+
+  <label for="pickup_time">Pickup Time: </label>
+  <input type="text" name="pickup_time" value=""><br>
+
+  <label for="dropoff_time">Dropoff Time: </label>
+  <input type="text" name="dropoff_time" value=""><br>
+
+  <input type="submit" name="submit" value="Submit">
+
+</form>

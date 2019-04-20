@@ -1,6 +1,12 @@
 class DogWalkerController < ApplicationController
 
+  get '/signup' do
+    erb :'/dogwalkers/signup'
+  end
 
+  get '/login' do
+    erb :'/dogwalkers/login'
+  end
 
 
 

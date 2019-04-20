@@ -1,0 +1,9 @@
+<h1><%= @walk.pickup_time %> - <%= @walk.dropoff_time %></h1>
+
+<a href="/walks/<%= @walk.id %>/edit"> <button type="button" name="button">Edit Walk</button></a><br>
+
+<form action="/walks/<%= @walk.id %>" method="post">
+  <input id= "hidden" type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Delete Walk">
+
+</form>
