@@ -1,9 +1,7 @@
 <h1 class="center"> <%= @dogwalker.name %></h1>
 
 <% @dogwalker.walks.each do |walk| %>
-  <%= walk.address %><br>
+  <a href="/walks/<%= walk.id %>"><li class="center"><%= walk.pickup_time %> - <%= walk.dropoff_time %></li></a><br>
 <% end %>
 
-
-<a href="/dogs/new"><input class = "center" type="button" name="add_dog" value="Add New Dog"></a>
 <a href="/walks/new"><input class="center" type="button" name="new_walk" value="New Walk"></a>
