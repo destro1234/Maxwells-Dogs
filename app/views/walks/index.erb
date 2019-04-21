@@ -1,5 +1,8 @@
+<h1 class="center"><%= current_user.name %></h1>
+
+
 <% @walks.each do |walk| %>
-  <%= walk.address %>
-  <%= walk.pickup_time %>
-  <%= walk.dropoff_time %>
-  <% end %>
+  <%= walk.address %><br>
+<% end %>
+
+<a href="/walks/new"><input class="center" type="button" name="new_walk" value="New Walk"></a>

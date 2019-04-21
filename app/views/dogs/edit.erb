@@ -1,0 +1,18 @@
+<form action="/dogs/<%= @dog.id %>/edit" method="post">
+
+  <input id="hidden" type="hidden"  name="_method" value="PATCH">
+
+  <label for="dog[name]">Name: </label>
+  <input type="text" name="dog[name]" value=""><br>
+
+
+  <label for="dog[temperament]">Temperament: </label>
+  <input type="text" name="dog[temperament]" value=""><br>
+
+
+  <label for="dog[friends][]">friends: </label>
+  <input type="text" name="dog[friends][]" value=""><br>
+
+  <input type="submit" name="submit" value="Submit">
+
+</form>

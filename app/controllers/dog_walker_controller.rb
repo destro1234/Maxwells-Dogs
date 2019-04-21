@@ -20,7 +20,7 @@ class DogWalkerController < ApplicationController
 
     if @dogwalker.save
     session[:id] = @dogwalker.id
-    redirect "/dogwalkers/#{@dogwalker.id}"
+    redirect "/walks"
     else
       redirect '/signup'
     end
@@ -31,7 +31,7 @@ class DogWalkerController < ApplicationController
 
     if @dogwalker && @dogwalker.authenticate(params[:password])
     session[:id] = @dogwalker.id
-    redirect "/dogwalkers/#{@dogwalker.id}"
+    redirect "/walks"
     else
       redirect '/'
     end
