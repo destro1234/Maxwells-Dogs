@@ -39,7 +39,7 @@ class WalkController < ApplicationController
     @walk = Walk.find(params[:id])
     @walk.update(params[:walk])
     @walk.save
-    redirect '/walks'
+    redirect "/walks/#{@walk.id}"
   end
 
   delete '/walks/:id/delete' do
