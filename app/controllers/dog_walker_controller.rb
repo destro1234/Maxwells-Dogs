@@ -8,6 +8,11 @@ class DogWalkerController < ApplicationController
     erb :'/dogwalkers/login'
   end
 
+  get '/logout' do
+    session.clear
+    redirect '/login'
+  end
+
 
 
   get '/dogwalkers/:id' do
