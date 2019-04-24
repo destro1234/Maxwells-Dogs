@@ -3,7 +3,6 @@ class AddColumnDogWalkerIdToWalks < ActiveRecord::Migration
     change_table :walks, :bulk => true do |t|
   t.integer :dog_walker_id
   t.string :pickup_time
-  t.string :dropoff_time
   t.remove :length
 end
   end
