@@ -3,20 +3,21 @@
   <h1>New Walk</h1>
 
   <% if !Dog.all.empty? %>
-    <label> Choose a dog: </label><br>
+    <label> Choose dogs: </label><br>
 
     <% Dog.all.each do |dog|%>
     <% if dog.name %>
-      <input type="checkbox" name="walk[dogs][]" value="<%=dog.id%>" id="<%=dog.id%>"><%=dog.name%><br></input>
+      <input type="checkbox" name="walk[dogs][]" id="walk[dogs][]" value="<%=dog.id%>" id="<%=dog.id%>"><%=dog.name%><br></input>
     <% end %>
     <% end %>
-<% end%>
+<% end%><br>
 
-  <label for="dog[name]">Dog: </label>
-  <input type="text" name="dog[name]" value=""><br>
+  <label for="">Or add new dog: </label><br>
+  <label for="dog[name]">New Dog: </label>
+  <input type="text" name="dog[name]" value=""><br><br>
 
   <label for="date">Date: </label>
-  <input type="text" name="" value=""><br>
+  <input type="date" name="date" value="2019-04-24" min="2019-01-01" max="2019-12-31"><br>
 
 
   <label for="address">Address: </label>
@@ -25,8 +26,8 @@
   <label for="pickup_time">Pickup Time: </label>
   <input type="time" id="pickup_time" name="pickup_time" value="" min="9:00" max="18:00" required><br>
 
-  <label for="length">Length of walk: </label>
-  <input type="length" name="" value="">
+  <label for="length">Length of walk,15 or 30mins: </label><br>
+  <input type="length" name="" value="">mins<br>
 
   <input type="submit" name="submit" value="Submit">
 

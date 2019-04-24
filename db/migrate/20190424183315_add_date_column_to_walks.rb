@@ -1,5 +1,5 @@
 class AddDateColumnToWalks < ActiveRecord::Migration
   def change
-    add_column :walks, :date, :datetime
+    add_column :walks, :date, :date
   end
 end

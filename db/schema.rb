@@ -31,10 +31,10 @@ ActiveRecord::Schema.define(version: 20190424183315) do
   end
 
   create_table "walks", force: :cascade do |t|
-    t.string   "address"
-    t.integer  "dog_walker_id"
-    t.string   "pickup_time"
-    t.datetime "date"
+    t.string  "address"
+    t.integer "dog_walker_id"
+    t.string  "pickup_time"
+    t.date    "date"
   end
 
 end
