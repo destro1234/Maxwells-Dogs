@@ -25,9 +25,9 @@ class WalkController < ApplicationController
 
   post '/walks' do
     if logged_in?
-    @walk = Walk.new(:date=> params[:date], :address => params[:address], :pickup_time => params[:pickup_time])
+    @walk = Walk.new(params[:walk])
     @walk.dog_walker = current_user
-    @walk.dogs << Dog.find_or_create_by(:name=> params[:dog][:name])
+    @walk.dogs << Dog.find_or_create_by(:name=> params[:dog][:name], :owner_name=> params[:dog][:owner_name])
     @walk.save
     redirect "/dogwalkers/#{@walk.dog_walker.id}"
     else

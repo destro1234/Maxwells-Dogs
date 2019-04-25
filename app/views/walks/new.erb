@@ -2,21 +2,28 @@
 
   <h1>New Walk</h1>
 
+  <h3>Add a new dog:</h3>
+
   <label for="dog[name]">Dog: </label>
-  <input type="text" name="dog[name]" value=""><br>
+  <input type="text" name="dog[name]" value="" required>
 
-  <label for="date">Date: </label>
-  <input type="date" name="date" value="2019-04-24" min="2019-01-01" max="2019-12-31"><br>
+  <label for="dog[owner_name]">Owner: </label>
+  <input type="text" name="dog[owner_name]" value=""><br><br>
+
+  <label for="walk[date]">Date: </label>
+  <input type="date" name="walk[date]" value="" min="2019-01-01" max="2019-31-12" required><br>
 
 
-  <label for="address">Address: </label>
-  <input type="text" name="address" value=""><br>
+  <label for="walk[address]">Address: </label>
+  <input type="text" name="walk[address]" value="" required><br>
 
-  <label for="pickup_time">Pickup Time: </label>
-  <input type="time" id="pickup_time" name="pickup_time" value="" min="9:00" max="18:00" required><br>
+  <label for="walk[pickup_time]">Pickup Time: </label>
+  <input type="time" id="pickup_time" name="walk[pickup_time]" value="" min="9:00" max="18:00" required>
 
-  <label for="length">Length of walk,15 or 30mins: </label><br>
-  <input type="length" name="" value="">mins<br>
+  <span>Walk hours are 9am to 6pm</span><br>
+
+  <label for="length">Length of walk,15 or 30mins: </label>
+  <input type="text" name="walk[length]" value="">mins<br>
 
   <input type="submit" name="submit" value="Submit">
 

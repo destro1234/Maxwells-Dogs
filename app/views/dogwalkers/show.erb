@@ -5,8 +5,11 @@
 <% end %>
 
 
-<% @dogwalker.walks.each do |walk| %>
-  <a href="/walks/<%= walk.id %>"><li class="center"><%= walk.pickup_time %> - <%= walk.date %></li></a>
+<% @walk = @dogwalker.walks.sort_by do |walk| %>
+<% walk.date  %>
+<% end %>
+<% @walk.each do |w| %>
+  <a href="/walks/<%= w.id %>" class="center"><%= w.pickup_time %> - <%= w.date %> - <% w.dogs.each do |dog| %><%= dog.name %><% end %> </a>
 <% end %>
 
 <a href="/walks/new"><input class="center" type="button" name="new_walk" value="New Walk"></a>
