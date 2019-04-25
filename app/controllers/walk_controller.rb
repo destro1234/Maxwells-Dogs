@@ -45,5 +45,6 @@ class WalkController < ApplicationController
   delete '/walks/:id/delete' do
     @walk = Walk.find(params[:id])
     @walk.delete
+    redirect "/dogwalkers/#{@walk.dog_walker.id}"
   end
 end

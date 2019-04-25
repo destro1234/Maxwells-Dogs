@@ -6,7 +6,7 @@
 
 
 <% @dogwalker.walks.each do |walk| %>
-  <a href="/walks/<%= walk.id %>"><li class="center"><%= walk.pickup_time %> - <%= walk.date %></li> - <% walk.dogs.map do |dog| %><%= dog.name %><% end %></a>
+  <a href="/walks/<%= walk.id %>"><li class="center"><%= walk.pickup_time %> - <%= walk.date %></li></a>
 <% end %>
 
 <a href="/walks/new"><input class="center" type="button" name="new_walk" value="New Walk"></a>
