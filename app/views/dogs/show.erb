@@ -1,6 +1,10 @@
 <h2>Name: <%= @dog.name %></h1><br>
 <h2>Dog Owner: <%= @dog.owner_name %></h2><br>
-<h2>Temperament: <%= @dog.temperament %></h2><br>
-<h2>Friends: <%= @dog.friends %></h2>
+<h2>Address: <%= @dog.address %></h2><br>
+<h2>Description: <%= @dog.description %></h2>
 
-<a href="/dogs/<%= @dog.id %>/edit">Edit Dog</a>
+
+<a href="/dogwalkers/<%= current_user.id %>"><input class="center" type="button" name="back_to_walks" value="back_to_walks"></a>
+
+<a href="/dogs/<%= @dog.id %>/edit"><input class="center" type="button" name="edit_dog" value="Edit Dog"></a>
+<a href="/logout"><input class="center" type="button" name="logout" value="Logout"></a>
