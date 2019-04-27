@@ -4,7 +4,7 @@
 
 <% @walk.dogs.each_with_index do |dog, index| %>
 
-  <%= index+1 %>. <%= dog.name %> - <%= dog.address %>
+  <a href="/dogs/<%= dog.id %>"><%= index+1 %>. <%= dog.name %> - <%= dog.address %> - <%= dog.description %><br></a>
 <% end%><br><br>
 
 <a href="/walks/<%= @walk.id %>/edit"><input type="submit" name="submit" value="Edit Walk"><br>
@@ -13,4 +13,6 @@
   <input id= "hidden" type="hidden" name="_method" value="DELETE">
   <input type="submit" value="Delete Walk"><br><br>
 </form>
-  <a href="/logout"><input class="center" type="button" name="logout" value="Logout"></a>
+
+<a href="/dogwalkers/<%= current_user.id %>"><input class="center" type="button" name="back_to_walks" value="back_to_walks"></a>
+<a href="/logout"><input class="center" type="button" name="logout" value="Logout"></a>

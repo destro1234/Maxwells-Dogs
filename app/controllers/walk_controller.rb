@@ -38,6 +38,7 @@ class WalkController < ApplicationController
   patch '/walks/:id/edit' do
     @walk = Walk.find(params[:id])
     @walk.update(params[:walk])
+    @walk.dogs << Dog.find_or_create_by(:name=> params[:dog][:name], :owner_name=> params[:dog][:owner_name], :address=> params[:dog][:address])
     @walk.save
     redirect "/walks/#{@walk.id}"
   end
