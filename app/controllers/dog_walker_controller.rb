@@ -1,11 +1,18 @@
 class DogWalkerController < ApplicationController
 
   get '/signup' do
+    if logged_in?
+      redirect "/dogwalkers/#{current_user.id}"
+    end
     erb :'/dogwalkers/signup'
   end
 
   get '/login' do
+    if logged_in?
+      redirect "/dogwalkers/#{current_user.id}"
+    else
     erb :'/dogwalkers/login'
+  end
   end
 
   get '/logout' do
@@ -17,7 +24,11 @@ class DogWalkerController < ApplicationController
 
   get '/dogwalkers/:id' do
     @dogwalker = DogWalker.find(params[:id])
+    if logged_in? && @dogwalker.id == current_user.id
     erb :'/dogwalkers/show'
+    else
+      redirect '/'
+    end
   end
 
   post '/signup' do

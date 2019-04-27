@@ -1,16 +1,13 @@
 class DogController < ApplicationController
 
-  get '/dogs/new' do
-    if logged_in?
-    erb :'/dogs/new'
-    else
-      redirect '/'
-    end
-  end
 
   get '/dogs/:id' do
+    if logged_in?
     @dog = Dog.find(params[:id])
     erb :'/dogs/show'
+    else
+      redirect "/"
+  end
   end
 
   get '/dogs/:id/edit' do
@@ -18,7 +15,7 @@ class DogController < ApplicationController
     @dog = Dog.find(params[:id])
     erb :'/dogs/edit'
     else
-      redirect '/login'
+      redirect '/'
     end
   end
 
