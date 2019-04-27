@@ -9,7 +9,7 @@
 <% walk.date  %>
 <% end %>
 <% @walk.each do |w| %>
-  <a href="/walks/<%= w.id %>" class="center"> <%= w.date %> - <%= w.pickup_time %> - <% w.dogs.each do |dog| %><%= dog.name %><% end %> </a>
+  <a href="/walks/<%= w.id %>" class="center"> <%= w.date %> - <%= w.pickup_time %> - <% w.dogs.each do |dog| %><%= dog.name %>  <% end %> </a>
 <% end %>
 
 <a href="/walks/new"><input class="center" type="button" name="new_walk" value="New Walk"></a>

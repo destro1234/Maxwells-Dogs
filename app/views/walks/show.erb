@@ -1,6 +1,6 @@
-<h1><u><%= @walk.pickup_time %> - <%= @walk.date %></u></h1>
+<h1><u><%= @walk.pickup_time %> - <%= @walk.date %> - <%= @walk.length %> minutes</u></h1>
 
-<h2> Dogs: </h2>
+<h2> Dogs to pickup: </h2>
 
 <% @walk.dogs.each_with_index do |dog, index| %>
 

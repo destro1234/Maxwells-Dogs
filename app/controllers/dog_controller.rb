@@ -1,7 +1,11 @@
 class DogController < ApplicationController
 
   get '/dogs/new' do
+    if logged_in?
     erb :'/dogs/new'
+    else
+      redirect '/'
+    end
   end
 
   get '/dogs/:id' do
@@ -10,8 +14,12 @@ class DogController < ApplicationController
   end
 
   get '/dogs/:id/edit' do
+    if logged_in?
     @dog = Dog.find(params[:id])
     erb :'/dogs/edit'
+    else
+      redirect '/login'
+    end
   end
 
   post '/dogs' do
