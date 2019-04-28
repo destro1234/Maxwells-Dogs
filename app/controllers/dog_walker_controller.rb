@@ -1,18 +1,19 @@
 class DogWalkerController < ApplicationController
 
   get '/signup' do
-    if logged_in?
-      redirect "/dogwalkers/#{current_user.id}"
-    end
-    erb :'/dogwalkers/signup'
+    if !logged_in?
+      erb :'/dogwalkers/signup'
+    else
+    redirect "/dogwalkers/#{current_user.id}"
+  end
   end
 
   get '/login' do
-    if logged_in?
-      redirect "/dogwalkers/#{current_user.id}"
+    if !logged_in?
+      erb :'/dogwalkers/login'
     else
-    erb :'/dogwalkers/login'
-  end
+      redirect "/dogwalkers/#{current_user.id}"
+    end
   end
 
   get '/logout' do
