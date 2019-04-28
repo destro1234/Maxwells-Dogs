@@ -31,4 +31,10 @@ class DogController < ApplicationController
     @dog.save
     redirect "/dogs/#{@dog.id}"
   end
+
+  delete '/dogs/:id/delete' do
+    @dog = Dog.find(params[:id])
+    @dog.delete
+    redirect "/dogwalkers/#{current_user.id}"
+  end
 end

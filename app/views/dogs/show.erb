@@ -3,6 +3,11 @@
 <h2>Address: <%= @dog.address %></h2><br>
 <h2>Description: <%= @dog.description %></h2>
 
+<form action="/dogs/<%= @dog.id %>/delete" method="post">
+  <input id= "hidden" type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Delete Dog"><br><br>
+</form>
+
 
 <a href="/dogwalkers/<%= current_user.id %>"><input class="center" type="button" name="back_to_walks" value="back_to_walks"></a>
 
