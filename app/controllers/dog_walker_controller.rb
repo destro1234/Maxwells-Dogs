@@ -39,11 +39,11 @@ class DogWalkerController < ApplicationController
   post '/login' do
     @dogwalker = DogWalker.find_by(:username => params[:username])
 
-    if @dogwalker && @dogwalker.authenticate(params[:password])
-    session[:id] = @dogwalker.id
-    redirect "/dogwalkers/#{@dogwalker.id}"
-    else
+    if !@dogwalker && !@dogwalker.authenticate(params[:password])
       redirect '/'
+    else
+      session[:id] = @dogwalker.id
+      redirect "/dogwalkers/#{@dogwalker.id}"
     end
   end
 
