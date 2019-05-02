@@ -21,15 +21,9 @@ class DogWalkerController < ApplicationController
     redirect '/'
   end
 
-
-
   get '/dogwalkers/:id' do
     @dogwalker = DogWalker.find(params[:id])
-    if logged_in? && @dogwalker.id == current_user.id
     erb :'/dogwalkers/show'
-    else
-      redirect '/'
-    end
   end
 
   post '/signup' do
