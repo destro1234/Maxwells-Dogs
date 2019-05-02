@@ -15,11 +15,11 @@ class ApplicationController < Sinatra::Base
 
   helpers do
     def logged_in?
-      !!current_user
+      !!session[:user_id]
     end
 
     def current_user
-    DogWalker.find(session[:id]) if session[:id]
+    DogWalker.find(session[:user_id]) if session[:user_id]
   end
   end
 
