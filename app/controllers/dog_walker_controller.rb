@@ -33,10 +33,13 @@ class DogWalkerController < ApplicationController
   post '/signup' do
     if params[:name].empty? || params[:username].empty? || params[:password].empty?
       redirect '/signup'
+    if DogWalker.find_by(:username=> params[:username])
+      redirect '/signup'
     else
       @dogwalker = DogWalker.create(:name => params[:name], :username => params[:username], :password => params[:password])
       session[:user_id] = @dogwalker.id
       redirect "/dogwalkers/#{@dogwalker.id}"
+    end
     end
   end
 
