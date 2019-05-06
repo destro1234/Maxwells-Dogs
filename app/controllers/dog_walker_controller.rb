@@ -1,11 +1,11 @@
 class DogWalkerController < ApplicationController
 
   get '/signup' do
-    if !logged_in?
-      erb :'/dogwalkers/signup'
+    if logged_in?
+      redirect "/dogwalkers/#{current_user.id}"
     else
-    redirect "/dogwalkers/#{current_user.id}"
-  end
+      erb :'/dogwalkers/signup'
+    end
   end
 
   get '/login' do
@@ -22,8 +22,9 @@ class DogWalkerController < ApplicationController
   end
 
   get '/dogwalkers/:id' do
-    if logged_in?
-    @dogwalker = DogWalker.find(current_user.id)
+    @dogwalker = DogWalker.find(params[:id])
+
+    if logged_in? && @dogwalker == current_user
     erb :'/dogwalkers/show'
     else
       redirect '/'
@@ -33,13 +34,12 @@ class DogWalkerController < ApplicationController
   post '/signup' do
     if params[:name].empty? || params[:username].empty? || params[:password].empty?
       redirect '/signup'
-    if DogWalker.find_by(:username=> params[:username])
+    elsif DogWalker.find_by(:username=> params[:username])
       redirect '/signup'
     else
       @dogwalker = DogWalker.create(:name => params[:name], :username => params[:username], :password => params[:password])
       session[:user_id] = @dogwalker.id
       redirect "/dogwalkers/#{@dogwalker.id}"
-    end
     end
   end
 
@@ -47,7 +47,7 @@ class DogWalkerController < ApplicationController
     @dogwalker = DogWalker.find_by(:username => params[:username])
 
     if @dogwalker && @dogwalker.authenticate(params[:password])
-      session[:id] = @dogwalker.id
+      session[:user_id] = @dogwalker.id
       redirect "/dogwalkers/#{@dogwalker.id}"
     else
       redirect '/'

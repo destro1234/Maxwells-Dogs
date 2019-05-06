@@ -6,7 +6,7 @@
 
 
 <% @walk = @dogwalker.walks.sort_by do |walk| %>
-<% walk.date  %>
+<% walk.date.to_s  %>
 <% end %>
 <% @walk.each do |w| %>
   <a href="/walks/<%= w.id %>" class="center"> <%= w.date %> - <%= w.pickup_time %> - <% w.dogs.each do |dog| %><%= dog.name %>  <% end %> </a>

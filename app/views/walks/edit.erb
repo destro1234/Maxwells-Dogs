@@ -20,15 +20,15 @@
   <input type="text" name="dog[address]" value="" required><br><br>
 
   <label for="walk[date]">Date: </label>
-  <input type="date" name="walk[date]" value="" min="2019-01-01" max="2019-31-12" required><br>
+  <input type="date" name="walk[date]" value="<%= @walk.date %>" min="2019-01-01" max="2019-31-12"><br>
 
   <label for="walk[pickup_time]">Pickup Time: </label>
-  <input type="time" id="pickup_time" name="walk[pickup_time]" value="" min="9:00" max="18:00" required>
+  <input type="time" id="pickup_time" name="walk[pickup_time]" value="<%= @walk.pickup_time %>" min="9:00" max="18:00">
 
   <span>Walk hours are 9am to 6pm</span><br>
 
   <label for="length">Length of walk,15 or 30mins: </label>
-  <input type="text" name="walk[length]" value="">mins<br>
+  <input type="text" name="walk[length]" value="<%= @walk.length %>">mins<br>
 
   <input type="submit" name="submit" value="Submit">
 

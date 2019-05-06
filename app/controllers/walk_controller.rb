@@ -9,33 +9,36 @@ class WalkController < ApplicationController
   end
 
   get '/walks/:id' do
-    if logged_in?
     @walk = Walk.find(params[:id])
-    erb :'/walks/show'
+
+    if logged_in? && @walk.dog_walker == current_user
+      erb :'/walks/show'
     else
-      redirect '/'
+      redirect "/dogwalkers/#{current_user.id}"
     end
   end
 
   get '/walks/:id/edit' do
-    if logged_in?
     @walk = Walk.find(params[:id])
+
+    if logged_in? && @walk.dog_walker == current_user
+
     erb :'/walks/edit'
     else
-      redirect '/'
+      redirect "/dogwalkers/#{current_user.id}"
     end
   end
 
   post '/walks' do
-    if logged_in?
+    if params[:dog][:name].empty? || params[:dog][:address].empty? || params[:walk][:date].empty? || params[:walk][:pickup_time].empty? || params[:walk][:length].empty?
+      redirect '/walks/new'
+    else
     @walk = Walk.new(params[:walk])
     @walk.dog_walker = current_user
     @walk.dogs << Dog.find_or_create_by(:name=> params[:dog][:name], :owner_name=> params[:dog][:owner_name], :address=> params[:dog][:address])
     @walk.save
     redirect "/dogwalkers/#{@walk.dog_walker.id}"
-    else
-      redirect "/walks"
-    end
+  end
   end
 
   patch '/walks/:id/edit' do
@@ -49,6 +52,6 @@ class WalkController < ApplicationController
   delete '/walks/:id/delete' do
     @walk = Walk.find(params[:id])
     @walk.delete
-    redirect "/dogwalkers/#{@walk.dog_walker.id}"
+    redirect "/dogwalkers/#{current_user.id}"
   end
 end
