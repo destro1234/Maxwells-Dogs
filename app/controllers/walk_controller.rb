@@ -1,14 +1,5 @@
 class WalkController < ApplicationController
 
-  get '/walks' do
-    if logged_in?
-    @walks = Walk.all
-    erb :'/walks/index'
-    else
-      redirect '/'
-    end
-  end
-
   get '/walks/new' do
     if logged_in?
     erb :'/walks/new'
